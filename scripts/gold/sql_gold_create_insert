@@ -1,1 +1,127 @@
+--      create gold.dim_customeer
 
+create table  gold.dim_customers (
+		customer_SK int primary key ,
+		customer_id int,
+	    customer_number nvarchar(50),
+	    firstname nvarchar(50),
+	    lastname nvarchar(50),
+		country nvarchar(50),
+	    marital_status nvarchar(50),
+	    gender nvarchar(50),
+		birthdate date,
+	    create_date date   
+	  )
+
+--      insert into gold.dim_customeer table
+ insert into gold.dim_customers (
+		customer_SK ,
+		customer_id ,
+	    customer_number ,
+	    firstname ,
+	    lastname ,
+		country ,
+	    marital_status ,
+	    gender ,
+		birthdate ,
+	    create_date  
+	  )
+	  SELECT 
+      ROW_NUMBER() OVER (ORDER BY cst_id) as customer_SK,
+      c.cst_id as customer_id
+      ,c.cst_key as customer_number
+      ,c.cst_firstname as first_name
+      ,c.cst_lastname as last_name
+	  ,l.cnt as country 
+      ,c.cst_marital_status as marital_status ,
+      --,c.cst_gndr,
+	  case when c.cst_gndr!='n/a'  then c.cst_gndr
+	       else   ci.Gen
+	  end  as gender
+	  ,ci.Bdate as birthdate
+      ,c.cst_create_date as create_date    
+	   
+  FROM silver.crm_customers  c
+  left join silver.erp_customer_info ci on 
+  c.cst_key =ci.Cid
+  left join silver.erp_localite l on
+  c.cst_key =l.Cid
+
+  --      create gold.dim_product
+insert into	gold.dim_products(
+    product_SK ,
+	product_id ,
+	product_number ,
+	product_name ,
+	category_id ,
+	category ,
+	sub_category ,
+	maintenance ,	
+	product_cost ,
+	product_line ,
+	product_start_date 
+	--product_end_datet date
+)
+	select 
+		ROW_NUMBER() OVER (ORDER BY prd_start_dt )  as product_SK,
+		p.prd_id as product_id,
+		p.prd_key as product_number,
+		p.prd_nm as product_name,
+		p.cat_id as category_id,	
+		c.Cat as category,
+		c.Subcat as sub_category,
+		c.Maintenance,
+		p.prd_cost as cost,
+		p.prd_line as product_line,	
+		p.prd_start_dt as start_date
+		--p.prd_end_dt
+	from silver.crm_products p
+	left join silver.erp_category as c
+	on p.cat_id = c.id
+	where prd_end_dt is null
+
+
+	select * from gold.dim_products
+
+	  --      create gold.fact_sales
+	  create table gold.fact_sales (
+	order_number nvarchar(50),
+	product_sk nvarchar(50),
+	customer_SK int,
+	order_date date,
+	shipping_date date,
+	due_date date,
+	sales_amount int,
+	quantity int,
+	price int,
+)
+--************
+
+insert into  gold.fact_sales (
+	order_number ,
+	product_sk ,
+	customer_SK ,
+	order_date ,
+	shipping_date ,
+	due_date ,
+	sales_amount ,
+	quantity ,
+	price 
+)
+select
+	sls_ord_num as order_number,
+	--sls_prd_key,
+	p.product_sk ,
+	c.customer_SK,
+	--sls_cust_id,
+	sls_order_dt as order_date,
+	sls_ship_dt as shipping_date,
+	sls_due_dt as due_date,
+	sls_sales as sales_amount ,
+	sls_quantity,
+	sls_price 
+from silver.crm_sales  s
+left join gold.dim_products p
+on s.sls_prd_key = p.product_number
+left join  gold.dim_customers c
+on s.sls_cust_id = c.customer_id
