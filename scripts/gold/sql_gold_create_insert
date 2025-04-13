@@ -150,3 +150,15 @@ on s.sls_cust_id = c.customer_id
 
 
 select * from gold.fact_sales;
+***************************
+
+verification :
+select * from gold.fact_sales f
+left join  gold.dim_customers c
+on c.customer_SK = f.customer_SK
+
+
+
+select * from gold.fact_sales f
+left join  gold.dim_products p
+on p.product_SK = f.product_sk
