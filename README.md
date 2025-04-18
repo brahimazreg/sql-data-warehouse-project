@@ -3,7 +3,7 @@ Building a modern data warehouse with SQL server, including ETL and data modelin
 
 On veut réaliser un projet Data  Engineer(  Data Warehouse ) dans le but de permetre aux décideurs de l'entreprise  de prendre de meilleures décisions sur base de l'analyse et du  raport réalisés sur ces données.
 L'objectve de cette étude :
-- Comportement dees customers  et top des 10 meilleurs customers.
+- Comportement des customers  et top des 10 meilleurs customers.
 - Performance des produits .
 - Tendence des ventes.
   
