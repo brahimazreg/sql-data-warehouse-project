@@ -14,6 +14,8 @@ Toutes les données sont à l'état  brut et necessitent  le netoyage  les trans
 L'architecture adoptée est celle de medals c'est à dire en 3 couches :
 Bronze layer : Dans cette étape les données seront transférées vers  sql server à l'état brut c'est à dire sans aucune transformation.
 Durand cette étape jutilise SSIS pour charger les données  dans sql server.
+
 Silver layer :  Dans cette étape les données seront transfeérs vers sql server  après  le netouyage et les transformations necessaires. J'utilise  le langage python et plus précisément  les librairies pandas, numpy 
+
 Gold layer : La modélisation finale dans cette couche les datas sont prêts pour le reporting et l'analyse,  le schema utilisé est celui de star schema.
 
