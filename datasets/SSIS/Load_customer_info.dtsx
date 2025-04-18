@@ -1,0 +1,525 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/16/2025 8:13:30 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="E6K-VDI1601"
+  DTS:CreatorName="TECHNOFUTURTIC\b.azreg"
+  DTS:DTSID="{D65841F9-1D8D-4C0C-A578-E57E58273BE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="2060"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{C6CA4CDD-EF93-4176-ADBD-880CAC72D1BD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[customer_info csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F7D20345-E67D-4436-84C4-CE807E313355}"
+      DTS:ObjectName="customer_info csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2060"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\b.azreg\Desktop\projet_Fin_DataV1\Projet_1_With_Python\Projects_1\source_erp\Customer_info.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CID"
+              DTS:DTSID="{001A2707-4245-45B9-99CE-2B645D106F6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BDATE"
+              DTS:DTSID="{818F35C4-E34A-4B1C-B060-75AA21DF7344}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GEN"
+              DTS:DTSID="{DB7296F8-EE4D-4F36-AE70-CB6A8314F710}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0A0427A4-55E9-4AD1-8A3E-D0F5F1DAE4F9}"
+      DTS:ObjectName="E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=E6K-VDI1601\TFTIC;User ID=sa;Initial Catalog=DataWarehouse_Demo;Provider=SQLOLEDB.1;Application Name=SSIS-Package2-{0A0427A4-55E9-4AD1-8A3E-D0F5F1DAE4F9}E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7YLtoIkh/02eiI2JN3ebdwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABz9LqqeZBwMDxZpsxriTfmAAAAAASAAACgAAAAEAAAAOJz1OofeRzoBq6A2hPmkYkYAAAA6jhYqH6jCQJmivRRockjJhs4Gm2Y4sBQFAAAAMQCudkiBvyMekac5yISHddovDzV</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load customer_info table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{40B884C0-3557-4CC1-B076-B2887B45A4E8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load customer_info table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load customer_info table\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[bronze].[erp_customer_info]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load customer_info table\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CID"
+                      externalMetadataColumnId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Cid]"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[CID]" />
+                    <inputColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[BDATE]"
+                      cachedDataType="date"
+                      cachedName="BDATE"
+                      externalMetadataColumnId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Bdate]"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[BDATE]" />
+                    <inputColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[GEN]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GEN"
+                      externalMetadataColumnId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Gen]"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[GEN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Cid]"
+                      dataType="wstr"
+                      length="50"
+                      name="Cid" />
+                    <externalMetadataColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Bdate]"
+                      dataType="dbTimeStamp"
+                      name="Bdate" />
+                    <externalMetadataColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Gen]"
+                      dataType="wstr"
+                      length="50"
+                      name="Gen" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load customer_info table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load customer_info table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load customer_info table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load customer_info table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load customer_info table\load customer_info csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source du fichier plat"
+              localeId="2060"
+              name="load customer_info csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load customer_info table\load customer_info csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[customer_info csv]"
+                  connectionManagerRefId="Package.ConnectionManagers[customer_info csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat]"
+                  name="Sortie de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[CID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].ExternalColumns[CID]"
+                      length="50"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[CID]"
+                      name="CID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[BDATE]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].ExternalColumns[BDATE]"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[BDATE]"
+                      name="BDATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[GEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].ExternalColumns[GEN]"
+                      length="50"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].Columns[GEN]"
+                      name="GEN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].ExternalColumns[CID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CID" />
+                    <externalMetadataColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].ExternalColumns[BDATE]"
+                      dataType="date"
+                      name="BDATE" />
+                    <externalMetadataColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat].ExternalColumns[GEN]"
+                      dataType="wstr"
+                      length="50"
+                      name="GEN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Colonne de sortie d'erreur de source de fichier plat"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      name="Colonne de sortie d'erreur de source de fichier plat" />
+                    <outputColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load customer_info table.Paths[Sortie de source de fichier plat]"
+              endId="Package\Load customer_info table\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source de fichier plat"
+              startId="Package\Load customer_info table\load customer_info csv.Outputs[Sortie de source de fichier plat]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table customer_info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{13C61BC9-5FA1-4193-8F7B-8A0CABE6E7FC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table customer_info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A0427A4-55E9-4AD1-8A3E-D0F5F1DAE4F9}"
+          SQLTask:SqlStatementSource="truncate table  bronze.erp_customer_info ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DBD7C368-C53F-41A3-8F7B-E9745F8EA662}"
+      DTS:From="Package\Truncate table customer_info"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load customer_info table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Load customer_info table"
+          TopLeft="256.333323366113,165.833334607548" />
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Truncate table customer_info"
+          TopLeft="246.33332495557,32.8999999793371" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="353.333324160841,74.4999999793371">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91.3333346282112"
+              Start="0,0"
+              End="0,83.8333346282112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.8333346282112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load customer_info table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Load customer_info table\load customer_info csv"
+          TopLeft="282.166655672921,30.6333335330751" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load customer_info table\Destination OLE DB"
+          TopLeft="182.999994138877,142.966667520735" />
+        <EdgeLayout
+          Id="Package\Load customer_info table.Paths[Sortie de source de fichier plat]"
+          TopLeft="374.566655672921,72.2333335330751">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-105.966661534045,70.7333339876599"
+              Start="0,0"
+              End="-105.966661534045,63.2333339876599">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.36666699383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.36666699383"
+                    Point2="0,35.36666699383"
+                    Point3="-4,35.36666699383" />
+                  <mssgle:LineSegment
+                    End="-101.966661534045,35.36666699383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-101.966661534045,35.36666699383"
+                    Point2="-105.966661534045,35.36666699383"
+                    Point3="-105.966661534045,39.36666699383" />
+                  <mssgle:LineSegment
+                    End="-105.966661534045,63.2333339876599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load customer_info table\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

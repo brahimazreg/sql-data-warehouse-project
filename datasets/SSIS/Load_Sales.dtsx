@@ -1,0 +1,777 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/15/2025 9:06:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="E6K-VDI1601"
+  DTS:CreatorName="TECHNOFUTURTIC\b.azreg"
+  DTS:DTSID="{AFB3139E-7234-4B95-ADB7-6DAFE410A295}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="2060"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{5EE58D2D-563E-4567-ADD6-CE27B8F3CCD0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{68262BC7-9ABF-453B-852F-6C2692BF3F96}"
+      DTS:ObjectName="E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=E6K-VDI1601\TFTIC;User ID=sa;Initial Catalog=DataWarehouse_Demo;Provider=SQLOLEDB.1;Application Name=SSIS-Package1-{68262BC7-9ABF-453B-852F-6C2692BF3F96}E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7YLtoIkh/02eiI2JN3ebdwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADU7uJyQEJkIM0+qvLU6S9zAAAAAASAAACgAAAAEAAAAHhvvsMKfs1+fe6xI0kCJEYYAAAA9t1ZWQfmuA5A32iUQwRAvfb57V/vRJpvFAAAAGHXuDceJi0tXye5vabg563BrZwA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sales csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A769B423-9946-49A1-AA71-34D779EF2468}"
+      DTS:ObjectName="sales csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2060"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\b.azreg\Desktop\projet_Fin_DataV1\Projet_1_With_Python\Projects_1\source_crm\Sales.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_ord_num"
+              DTS:DTSID="{B12C69B1-A10A-4328-BF56-0D9EE55ADFD0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_prd_key"
+              DTS:DTSID="{14DCB635-A737-4945-80C1-3207CF2DA876}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_cust_id"
+              DTS:DTSID="{6F13AFCD-1AFB-49AE-A4F0-0A88B4DD9394}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_order_dt"
+              DTS:DTSID="{A0EBBE7D-BBB1-46BD-8FC9-CE2C64A454DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_ship_dt"
+              DTS:DTSID="{53DA34D2-0AD8-4218-AD95-159ECC9D3AF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_due_dt"
+              DTS:DTSID="{96F7CD12-EF4A-4AB3-9B01-1EB62BE9F4FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_sales"
+              DTS:DTSID="{2B9FEA37-FC24-4A7F-8315-645C12F589F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_quantity"
+              DTS:DTSID="{6A612DB4-C107-478F-8EB1-72C123E4D123}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sls_price"
+              DTS:DTSID="{A2B600AB-AAB8-4295-99EC-1E9D055373F2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load sales table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{D42732CC-EFBB-42BD-9466-10516A4F26B2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load sales table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load sales table\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[bronze].[crm_sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load sales table\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[E6K-VDI1601\TFTIC.DataWarehouse_Demo.sa]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_ord_num]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sls_ord_num"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_ord_num]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_ord_num]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_prd_key]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sls_prd_key"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_prd_key]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_prd_key]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_cust_id]"
+                      cachedDataType="i4"
+                      cachedName="sls_cust_id"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_cust_id]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_cust_id]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_order_dt]"
+                      cachedDataType="i4"
+                      cachedName="sls_order_dt"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_order_dt]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_order_dt]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_ship_dt]"
+                      cachedDataType="i4"
+                      cachedName="sls_ship_dt"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_ship_dt]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_ship_dt]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_due_dt]"
+                      cachedDataType="i4"
+                      cachedName="sls_due_dt"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_due_dt]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_due_dt]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_sales]"
+                      cachedDataType="i4"
+                      cachedName="sls_sales"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_sales]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_sales]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_quantity]"
+                      cachedDataType="i4"
+                      cachedName="sls_quantity"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_quantity]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_quantity]" />
+                    <inputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[sls_price]"
+                      cachedDataType="i4"
+                      cachedName="sls_price"
+                      externalMetadataColumnId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_price]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_price]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_ord_num]"
+                      dataType="wstr"
+                      length="50"
+                      name="sls_ord_num" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_prd_key]"
+                      dataType="wstr"
+                      length="50"
+                      name="sls_prd_key" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_cust_id]"
+                      dataType="i4"
+                      name="sls_cust_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_order_dt]"
+                      dataType="i4"
+                      name="sls_order_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_ship_dt]"
+                      dataType="i4"
+                      name="sls_ship_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_due_dt]"
+                      dataType="i4"
+                      name="sls_due_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_sales]"
+                      dataType="i4"
+                      name="sls_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_quantity]"
+                      dataType="i4"
+                      name="sls_quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[sls_price]"
+                      dataType="i4"
+                      name="sls_price" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load sales table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load sales table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load sales table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load sales table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load sales table\Sales csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source du fichier plat"
+              localeId="2060"
+              name="Sales csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load sales table\Sales csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sales csv]"
+                  connectionManagerRefId="Package.ConnectionManagers[sales csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat]"
+                  name="Sortie de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_ord_num]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_ord_num]"
+                      length="50"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_ord_num]"
+                      name="sls_ord_num"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_prd_key]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_prd_key]"
+                      length="50"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_prd_key]"
+                      name="sls_prd_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_cust_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_cust_id]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_cust_id]"
+                      name="sls_cust_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_order_dt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_order_dt]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_order_dt]"
+                      name="sls_order_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_ship_dt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_ship_dt]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_ship_dt]"
+                      name="sls_ship_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_due_dt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_due_dt]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_due_dt]"
+                      name="sls_due_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_sales]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_sales]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_sales]"
+                      name="sls_sales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_quantity]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_quantity]"
+                      name="sls_quantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_price]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_price]"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].Columns[sls_price]"
+                      name="sls_price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_ord_num]"
+                      dataType="wstr"
+                      length="50"
+                      name="sls_ord_num" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_prd_key]"
+                      dataType="wstr"
+                      length="50"
+                      name="sls_prd_key" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_cust_id]"
+                      dataType="i4"
+                      name="sls_cust_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_order_dt]"
+                      dataType="i4"
+                      name="sls_order_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_ship_dt]"
+                      dataType="i4"
+                      name="sls_ship_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_due_dt]"
+                      dataType="i4"
+                      name="sls_due_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_sales]"
+                      dataType="i4"
+                      name="sls_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_quantity]"
+                      dataType="i4"
+                      name="sls_quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat].ExternalColumns[sls_price]"
+                      dataType="i4"
+                      name="sls_price" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Colonne de sortie d'erreur de source de fichier plat"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      name="Colonne de sortie d'erreur de source de fichier plat" />
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load sales table\Sales csv.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load sales table.Paths[Sortie de source de fichier plat]"
+              endId="Package\Load sales table\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source de fichier plat"
+              startId="Package\Load sales table\Sales csv.Outputs[Sortie de source de fichier plat]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate sales table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{68E04753-22AF-4A16-BA7A-DE98806EC52B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate sales table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{68262BC7-9ABF-453B-852F-6C2692BF3F96}"
+          SQLTask:SqlStatementSource="truncate table bronze.crm_sales;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CC3D630E-02B8-4253-B083-BFC1B9D3F677}"
+      DTS:From="Package\Truncate sales table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load sales table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Load sales table"
+          TopLeft="274.166666997804,186.766667582724" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Truncate sales table"
+          TopLeft="202.999992152055,34.9666669008467" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="288.999992152055,76.5666669008467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.3666748457482,110.200000681877"
+              Start="0,0"
+              End="62.3666748457482,102.700000681877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.1000003409386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.1000003409386"
+                    Point2="0,55.1000003409386"
+                    Point3="4,55.1000003409386" />
+                  <mssgle:LineSegment
+                    End="58.3666748457482,55.1000003409386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.3666748457482,55.1000003409386"
+                    Point2="62.3666748457482,55.1000003409386"
+                    Point3="62.3666748457482,59.1000003409386" />
+                  <mssgle:LineSegment
+                    End="62.3666748457482,102.700000681877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load sales table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Load sales table\Sales csv"
+          TopLeft="290.666675243112,37.4999994834264" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load sales table\Destination OLE DB"
+          TopLeft="270.499989469846,148.500001136462" />
+        <EdgeLayout
+          Id="Package\Load sales table.Paths[Sortie de source de fichier plat]"
+          TopLeft="354.983332356479,79.0999994834264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.4000016530355"
+              Start="0,0"
+              End="0,61.9000016530355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.9000016530355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load sales table\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
