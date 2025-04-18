@@ -6,6 +6,7 @@ L'objectve de cette étude :
 - Comportement dees customers  et top des 10 meilleurs customers.
 - Performance des produits .
 - Tendence des ventes.
+  
 La source de données est constituée de 2 dossiers : 
 crm : qui contient 3 fichiers csv ( customers , products , sales)
 erp : qui contient 3 fichiers csv ( category , localite , customer_inf).
